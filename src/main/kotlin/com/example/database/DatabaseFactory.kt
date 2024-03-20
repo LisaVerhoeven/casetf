@@ -16,7 +16,7 @@ object DatabaseFactory {
                 url = "jdbc:postgresql://localhost:5432/mydatabase",
                 driver = "org.postgresql.Driver",
                 user = "postgres",
-                password = "lisa" // Use the actual password here
+                password = "lisa"
             )
         }
     }

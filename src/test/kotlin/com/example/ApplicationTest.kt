@@ -22,7 +22,7 @@ class ApplicationTest {
         // Setup in-memory database
         Database.connect("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;", driver = "org.h2.Driver")
         transaction {
-            SchemaUtils.create(Users) // Ensure Users table is created for testing
+            SchemaUtils.create(Users)
         }
     }
 
@@ -44,7 +44,6 @@ class ApplicationTest {
     fun testLogin() = testApplication {
         application { module() }
 
-        // Assume registration is successful; consider abstracting registration into a reusable function.
         val registerResponse = client.post("/register") {
             contentType(ContentType.Application.FormUrlEncoded)
             setBody(listOf("name" to "Test User", "age" to "25", "username" to "testuser", "password" to "password123").formUrlEncode())
